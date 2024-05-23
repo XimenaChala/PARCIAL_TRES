@@ -1,0 +1,68 @@
+@startuml Cliente
+
+class Cliente {
+  - tipoDocumento: String
+  - documento: String
+  - nombre: String
+  - correo: String
+  + registrarCliente()
+  + modificarCliente()
+  + eliminarCliente()
+  + consultarCliente()
+}
+
+class Producto {
+  - codigo: String
+  - nombre: String
+  - descripcion: String
+  - categoria: String
+  - valor: Double
+  + registrarProducto()
+  + modificarProducto()
+  + eliminarProducto()
+  + consultarProducto()
+}
+
+class Inventario {
+  - codigo: String
+  - stock: Integer
+  - fechaIngreso: Date
+  - valorDescuento: Double
+  - porcentajeIVA: Double
+  - fechaSalida: Date
+  + registrarEntrada()
+  + registrarSalida()
+  + modificarInventario()
+  + eliminarInventario()
+  + consultarInventario()
+}
+
+class DetalleFactura {
+  - cantidad: Integer
+  - valorBruto: Double
+  - valorNeto: Double
+  - valorDescuento: Double
+  - valorTotal: Double
+  + agregarDetalle()
+  + modificarDetalle()
+  + eliminarDetalle()
+  + consultarDetalle()
+}
+
+class FacturaCliente {
+  - numeroFactura: String
+  - fecha: Date
+  - cliente: Cliente
+  + crearFactura()
+  + modificarFactura()
+  + eliminarFactura()
+  + consultarFactura()
+}
+
+' Relaciones
+Cliente "1" -- "0..*" FacturaCliente : tiene >
+FacturaCliente "1" -- "*" DetalleFactura : contiene >
+DetalleFactura "*" -- "1" Producto : describe >
+Inventario "1" -- "1" Producto : rastrea >
+
+@enduml

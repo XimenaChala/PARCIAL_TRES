@@ -1,0 +1,53 @@
+@startuml Cliente
+
+left to right direction
+actor Cliente as c
+actor Admin
+
+rectangle Sistema {
+  (Registrar Cliente) as RC
+  (Modificar Cliente) as MC
+  (Eliminar Cliente) as EC
+  (Consultar Cliente) as CC
+  (Agregar Detalle Factura) as ADF
+  (Modificar Detalle Factura) as MDF
+  (Eliminar Detalle Factura) as EDF
+  (Consultar Detalle Factura) as CDF
+  (Registrar Producto) as RP
+  (Modificar Producto) as MP
+  (Eliminar Producto) as EP
+  (Consultar Producto) as CP
+  (Registrar Entrada Inventario) as REI
+  (Registrar Salida Inventario) as RSI
+  (Modificar Inventario) as MI
+  (Eliminar Inventario) as EI
+  (Consultar Inventario) as CI
+  (Crear Factura) as CF
+  (Modificar Factura) as MF
+  (Eliminar Factura) as EF
+  (Consultar Factura) as FCF
+
+  c -down-> RC
+  c -down-> MC
+  c -down-> EC
+  c -down-> CC
+  Admin -down-> ADF
+  Admin -down-> MDF
+  Admin -down-> EDF
+  Admin -down-> CDF
+  Admin -down-> RP
+  Admin -down-> MP
+  Admin -down-> EP
+  Admin -down-> CP
+  Admin -down-> REI
+  Admin -down-> RSI
+  Admin -down-> MI
+  Admin -down-> EI
+  Admin -down-> CI
+  Admin -down-> CF
+  Admin -down-> MF
+  Admin -down-> EF
+  Admin -down-> FCF
+}
+
+@enduml

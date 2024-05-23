@@ -1,0 +1,14 @@
+@startuml Cliente
+actor Cliente
+participant "UI Form" as UI
+participant "ControladorCliente" as Controller
+database "Base de Datos" as DB
+
+Cliente -> UI : ingresaDatos(tipoDocumento, documento, nombre, correo)
+UI -> Controller : registrarCliente(tipoDocumento, documento, nombre, correo)
+Controller -> DB : insertaDatosCliente()
+DB -> Controller : confirmaRegistro()
+Controller -> UI : muestraResultado()
+UI -> Cliente : muestraMensaje("Cliente registrado")
+
+@enduml
